@@ -1,3 +1,2 @@
 <?php
-
-echo "go";
+echo "<input type=text>";
