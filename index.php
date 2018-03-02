@@ -1,30 +1,35 @@
-<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-</select>
-
-
-
 <script>
  function go(){
     var voorbeeld = document.getElementById("deid").value;
-//    alert(voorbeeld);
     document.location = "index.php?input="+voorbeeld;
 }
 </script>
 <?php
-$debroodjes = allebroodjes();
-
+session_start();
 if(isset($_GET['input'])){
-    echo ">>".$_GET['input'];
+    echo "go";
+//    $_SESSION['bestelling'] = $_GET['input'];
 }
+foreach($_SESSION['bestelling'] as $bestelling){
+    echo "Besteld is".$bestelling;
+}
+
+
+$debroodjes = allebroodjes();
 bestelMenu($debroodjes);
-//echo "<input type=text id=deid >";
 echo "<input type=button onclick=go() value=bestellen>";
 echo "<br><br>";
 productenTonen($debroodjes);
+
+
+
+
+
+
+
+
+
+
 
 function bestelMenu($alledingen){
     echo "<select id=deid>";
