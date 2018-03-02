@@ -10,5 +10,17 @@
 if(isset($_GET['input'])){
     echo ">>".$_GET['input'];
 }
-$voornaam = "ruud";
 echo "<input type=text id=deid ><input type=button onclick=go()>";
+echo "<br><br>";
+$debroodjes = allebroodjes();
+productenTonen($debroodjes);
+
+function productenTonen($lijstProducten){
+    foreach($lijstProducten as $product){
+        echo "$product <br>";
+    }
+}
+function allebroodjes(){
+    $broodjes = ["Broodje Gezond","Broodje Bal","Broodje Brie","Broodje KipKerrie"];
+    return $broodjes;
+}
